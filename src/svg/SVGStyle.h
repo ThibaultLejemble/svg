@@ -30,6 +30,11 @@ class SVGStyle
 public:
     SVGStyle();
 
+    static std::string to_string(Cap cap);
+    static std::string to_string(Join join);
+    static std::string to_string(Order order);
+    static std::string to_string(const std::vector<int> dasharray);
+
 public:
     float opacity() const;
     void set_opacity(float opacity);
@@ -75,6 +80,9 @@ public:
 
     Order paint_order() const;
     void set_paint_order(Order order);
+
+public:
+    void print(std::ostream& os) const;
 
 protected:
     float            m_opacity;

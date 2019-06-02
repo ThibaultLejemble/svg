@@ -1,5 +1,7 @@
 #include <svg/SVGStyle.h>
 
+#include <ostream>
+
 namespace svg {
 
 SVGStyle::SVGStyle() :
@@ -19,6 +21,45 @@ SVGStyle::SVGStyle() :
     m_stroke_opacity(1),
     m_paint_order(Order::Normal)
 {
+}
+
+std::string SVGStyle::to_string(Cap cap)
+{
+    switch(cap)
+    {
+    case Cap::Butt  : return "butt";
+    case Cap::Round : return "round";
+    case Cap::Square: return "square";
+    default:          return "error";
+    }
+}
+
+std::string SVGStyle::to_string(Join join)
+{
+    switch(join)
+    {
+    case Join::Miter: return "miter";
+    case Join::Round: return "round";
+    case Join::Bevel: return "bevel";
+    default:          return "error";
+    }
+}
+
+std::string SVGStyle::to_string(Order order)
+{
+    switch(order)
+    {
+    case Order::Normal: return "normal";
+    default:            return "error";
+    }
+}
+
+std::string SVGStyle::to_string(const std::vector<int> dasharray)
+{
+    std::string res;
+    for(int i : dasharray)
+        res += std::to_string(i);
+    return res;
 }
 
 float SVGStyle::opacity() const
@@ -169,6 +210,22 @@ Order SVGStyle::paint_order() const
 void SVGStyle::set_paint_order(Order order)
 {
     m_paint_order = order;
+}
+
+void SVGStyle::print(std::ostream& os) const
+{
+    os << "opacity:"            << m_opacity                                << ";"
+       << "fill:"               << (m_filled ? m_fill.hexa() : "none")      << ";"
+       << "fill-opacity:"       << m_fill_opacity                           << ";"
+       << "stroke:"             << (m_stroked? m_stroke.hexa() : "none")    << ";"
+       << "stroke-width:"       << m_stroke_width                           << ";"
+       << "stroke-linecap:"     << to_string(m_stroke_linecap)              << ";"
+       << "stroke-linejoin:"    << to_string(m_stroke_linejoin)             << ";"
+       << "stroke-miterlimit:"  << m_stroke_miterlimit                      << ";"
+       << "stroke-dasharray:"   << (m_stroke_dashed?to_string(m_stroke_dasharray):"non") << ";"
+       << "stroke-dashoffset:"  << m_stroke_dashoffset                      << ";"
+       << "stroke-opacity:"     << m_stroke_opacity                         << ";"
+       << "paint-order:"        << to_string(m_paint_order);
 }
 
 } // namespace svg
