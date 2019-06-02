@@ -6,16 +6,23 @@
 
 namespace svg {
 
-enum Cap : int
+enum class Cap
 {
-    Butt,
+    Butt = 0,
     Round,
     Square
 };
 
-enum Order : int
+enum class Join
 {
-    Normal
+    Miter = 0,
+    Round,
+    Bevel
+};
+
+enum class Order
+{
+    Normal = 0
 };
 
 class SVGStyle
@@ -48,6 +55,9 @@ public:
     Cap stroke_linecap() const;
     void set_stroke_linecap(Cap linecap);
 
+    Join stroke_linejoin() const;
+    void set_stroke_linejoin(Join linejoin);
+
     int stroke_miterlimit() const;
     void set_stroke_miterlimit(int miterlimit);
 
@@ -77,6 +87,7 @@ protected:
     SVGColor         m_stroke;
     float            m_stroke_width;
     Cap              m_stroke_linecap;
+    Join             m_stroke_linejoin;
     int              m_stroke_miterlimit;
 
     bool             m_stroke_dashed;

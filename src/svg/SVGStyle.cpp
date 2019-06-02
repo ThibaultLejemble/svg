@@ -10,13 +10,14 @@ SVGStyle::SVGStyle() :
     m_stroked(false),
     m_stroke(0,0,0),
     m_stroke_width(1),
-    m_stroke_linecap(Round),
+    m_stroke_linecap(Cap::Butt),
+    m_stroke_linejoin(Join::Miter),
     m_stroke_miterlimit(4),
     m_stroke_dashed(false),
     m_stroke_dasharray({}),
     m_stroke_dashoffset(0),
     m_stroke_opacity(1),
-    m_paint_order(Normal)
+    m_paint_order(Order::Normal)
 {
 }
 
@@ -98,6 +99,16 @@ Cap SVGStyle::stroke_linecap() const
 void SVGStyle::set_stroke_linecap(Cap linecap)
 {
     m_stroke_linecap = linecap;
+}
+
+Join SVGStyle::stroke_linejoin() const
+{
+    return m_stroke_linejoin;
+}
+
+void SVGStyle::set_stroke_linejoin(Join linejoin)
+{
+    m_stroke_linejoin = linejoin;
 }
 
 int SVGStyle::stroke_miterlimit() const
