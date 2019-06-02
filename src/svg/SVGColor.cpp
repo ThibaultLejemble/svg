@@ -23,7 +23,7 @@ SVGColor::SVGColor(const std::string& hexa) :
     set_hexa(hexa);
 }
 
-SVGColor SVGColor::from_rgb255(int r, int g, int b)
+SVGColor SVGColor::from_255(int r, int g, int b)
 {
     return SVGColor(m_norm_255 * r,
                     m_norm_255 * g,

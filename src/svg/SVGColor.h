@@ -10,7 +10,7 @@ public:
     SVGColor(float r = 0, float g = 0, float b = 0);
     SVGColor(const std::string& hexa);
 
-    static SVGColor from_rgb255(int r, int g, int b);
+    static SVGColor from_255(int r, int g, int b);
     static SVGColor from_hexa(const std::string& hexa);
 
 public:
