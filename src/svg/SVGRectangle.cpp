@@ -88,13 +88,13 @@ void SVGRectangle::set_r(float r)
 void SVGRectangle::print(std::ostream &os) const
 {
     os << "<rect\n"
-      << "id=\""       << m_id     << "\"\n"
-      << "x=\""        << m_x      << "\"\n"
-      << "y=\""        << m_y      << "\"\n"
-      << "width=\""    << m_width  << "\"\n"
-      << "height=\""   << m_height << "\"\n"
-      << "rx=\""       << m_r      << "\"\n"
-      << "style=\"";
+       << "id=\""       << m_id     << "\"\n"
+       << "x=\""        << m_x      << "\"\n"
+       << "y=\""        << m_y      << "\"\n"
+       << "width=\""    << m_width  << "\"\n"
+       << "height=\""   << m_height << "\"\n"
+       << "rx=\""       << m_r      << "\"\n"
+       << "style=\"";
     m_style->print(os);
     os << "\"/>";
 }
