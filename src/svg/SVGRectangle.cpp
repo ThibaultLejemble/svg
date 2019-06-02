@@ -1,4 +1,5 @@
 #include <svg/SVGRectangle.h>
+#include <svg/SVGStyle.h>
 
 #include <ostream>
 
@@ -10,7 +11,7 @@ SVGRectangle::SVGRectangle(const std::string& id,
                            float x,
                            float y,
                            float r) :
-    SVGElement(id),
+    SVGShape(id),
     m_x(x),
     m_y(y),
     m_width(width),
@@ -25,7 +26,7 @@ SVGRectangle::SVGRectangle(float width,
                            float y,
                            float r,
                            const std::string& id) :
-    SVGElement(id),
+    SVGShape(id),
     m_x(x),
     m_y(y),
     m_width(width),
@@ -86,13 +87,16 @@ void SVGRectangle::set_r(float r)
 
 void SVGRectangle::print(std::ostream &os) const
 {
-    os << "<rect\n";
-    os << "id=\"" << m_id << "\"\n";
-    os << "x=\"" << m_x << "\"\n";
-    os << "y=\"" << m_y << "\"\n";
-    os << "width=\"" << m_width << "\"\n";
-    os << "height=\"" << m_height << "\"\n";
-    os << "rx=\"" << m_r << "\"/>";
+    os << "<rect\n"
+      << "id=\""       << m_id     << "\"\n"
+      << "x=\""        << m_x      << "\"\n"
+      << "y=\""        << m_y      << "\"\n"
+      << "width=\""    << m_width  << "\"\n"
+      << "height=\""   << m_height << "\"\n"
+      << "rx=\""       << m_r      << "\"\n"
+      << "style=\"";
+    m_style->print(os);
+    os << "\"/>";
 }
 
 } // namespace svg

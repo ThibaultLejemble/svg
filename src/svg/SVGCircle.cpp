@@ -1,4 +1,5 @@
 #include <svg/SVGCircle.h>
+#include <svg/SVGStyle.h>
 
 #include <ostream>
 
@@ -8,7 +9,7 @@ SVGCircle::SVGCircle(const std::string& id,
                      float x,
                      float y,
                      float r) :
-    SVGElement(id),
+    SVGShape(id),
     m_x(x),
     m_y(y),
     m_r(r)
@@ -19,7 +20,7 @@ SVGCircle::SVGCircle(float x,
                      float y,
                      float r,
                      const std::string& id) :
-    SVGElement(id),
+    SVGShape(id),
     m_x(x),
     m_y(y),
     m_r(r)
@@ -58,11 +59,14 @@ void SVGCircle::set_r(float r)
 
 void SVGCircle::print(std::ostream &os) const
 {
-    os << "<circle\n";
-    os << "id=\"" << m_id << "\"\n";
-    os << "cx=\"" << m_x << "\"\n";
-    os << "cy=\"" << m_y << "\"\n";
-    os << "r=\"" << m_r << "\"/>";
+    os << "<circle\n"
+       << "id=\"" << m_id << "\"\n"
+       << "cx=\"" << m_x  << "\"\n"
+       << "cy=\"" << m_y  << "\"\n"
+       << "r=\""  << m_r  << "\"\n"
+       << "style=\"";
+    m_style->print(os);
+    os << "\"/>";
 }
 
 } // namespace svg

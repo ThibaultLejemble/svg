@@ -1,5 +1,3 @@
-#include <string>
-
 #include <svg/SVGDocument.h>
 #include <svg/SVGGroup.h>
 #include <svg/SVGRectangle.h>
@@ -7,7 +5,7 @@
 
 using namespace svg;
 
-int main(int argc, char *argv[])
+int main()
 {
     SVGRectangle* rect = new SVGRectangle("rectangle", 50, 50, 25, 25);
     SVGCircle*    circ = new SVGCircle("circle", 75, 75, 25);

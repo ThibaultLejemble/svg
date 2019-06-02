@@ -1,10 +1,10 @@
 #pragma once
 
-#include <svg/SVGElement.h>
+#include <svg/SVGShape.h>
 
 namespace svg {
 
-class SVGCircle : public SVGElement
+class SVGCircle : public SVGShape
 {
 public:
     SVGCircle(const std::string& id,
