@@ -57,8 +57,12 @@ std::string SVGStyle::to_string(Order order)
 std::string SVGStyle::to_string(const std::vector<int> dasharray)
 {
     std::string res;
-    for(int i : dasharray)
-        res += std::to_string(i);
+    for(size_t idx=0; idx<dasharray.size(); ++idx)
+    {
+        res += std::to_string(dasharray[idx]);
+        if(idx < dasharray.size()-1)
+            res += ",";
+    }
     return res;
 }
 
