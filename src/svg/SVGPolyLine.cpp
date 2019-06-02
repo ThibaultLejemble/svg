@@ -23,7 +23,7 @@ std::vector<Point>& SVGPolyLine::points()
 
 void SVGPolyLine::print(std::ostream &os) const
 {
-    os << "<line\n"
+    os << "<polyline\n"
        << "points=\"";
     for(size_t idx=0; idx<m_points.size(); ++idx)
     {
