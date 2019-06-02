@@ -27,7 +27,7 @@ public:
     void remove_child(int i);
 
 public:
-    virtual void print(std::ostream& os) const;
+    virtual void print(std::ostream& os, int n) const;
 
 protected:
     std::string m_id;

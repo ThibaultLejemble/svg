@@ -9,17 +9,18 @@ SVGGroup::SVGGroup(const std::string& id) :
 {
 }
 
-void SVGGroup::print(std::ostream& os) const
+void SVGGroup::print(std::ostream& os, int n) const
 {
-    os << "<g id=\"" << m_id << "\">\n";
+    std::string s(n, ' ');
+    os << s << "<g id=\"" << m_id << "\">\n";
     {
         for(const auto& child : m_children)
         {
-            child->print(os);
+            child->print(os, n+2);
             os << "\n";
         }
     }
-    os << "</g>";
+    os << s << "</g>";
 }
 
 } // namespace svg

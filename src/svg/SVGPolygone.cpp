@@ -21,10 +21,11 @@ std::vector<Point>& SVGPolygone::points()
     return m_points;
 }
 
-void SVGPolygone::print(std::ostream &os) const
+void SVGPolygone::print(std::ostream &os, int n) const
 {
-    os << "<polygone\n"
-       << "points=\"";
+    std::string s(n, ' ');
+    os <<s << "<polygone\n"
+       <<s << "   points=\"";
     for(size_t idx=0; idx<m_points.size(); ++idx)
     {
         os << m_points[idx].x << "," << m_points[idx].y;
@@ -32,7 +33,7 @@ void SVGPolygone::print(std::ostream &os) const
             os << " ";
     }
     os << "\"\n"
-       << "style=\"";
+       << s << "   style=\"";
     m_style->print(os);
     os << "\"/>";
 }

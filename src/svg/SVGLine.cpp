@@ -71,14 +71,15 @@ void SVGLine::set_y2(float y2)
     m_y2 = y2;
 }
 
-void SVGLine::print(std::ostream &os) const
+void SVGLine::print(std::ostream &os, int n) const
 {
-    os << "<line\n"
-       << "x1=\"" << m_x1 << "\"\n"
-       << "y1=\"" << m_y1 << "\"\n"
-       << "x2=\"" << m_x2 << "\"\n"
-       << "y2=\"" << m_y2 << "\"\n"
-       << "style=\"";
+    std::string s(n, ' ');
+    os << s << "<line\n"
+       << s << "   x1=\"" << m_x1 << "\"\n"
+       << s << "   y1=\"" << m_y1 << "\"\n"
+       << s << "   x2=\"" << m_x2 << "\"\n"
+       << s << "   y2=\"" << m_y2 << "\"\n"
+       << s << "   style=\"";
     m_style->print(os);
     os << "\"/>";
 }

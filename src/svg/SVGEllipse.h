@@ -30,7 +30,7 @@ public:
     void set_ry(float ry);
 
 public:
-    virtual void print(std::ostream &os) const override;
+    virtual void print(std::ostream &os, int n) const override;
 
 protected:
     float m_x;

@@ -21,10 +21,11 @@ std::vector<Point>& SVGPolyLine::points()
     return m_points;
 }
 
-void SVGPolyLine::print(std::ostream &os) const
+void SVGPolyLine::print(std::ostream &os, int n) const
 {
-    os << "<polyline\n"
-       << "points=\"";
+    std::string s(n, ' ');
+    os << s << "<polyline\n"
+       << s << "   points=\"";
     for(size_t idx=0; idx<m_points.size(); ++idx)
     {
         os << m_points[idx].x << "," << m_points[idx].y;
@@ -32,7 +33,7 @@ void SVGPolyLine::print(std::ostream &os) const
             os << " ";
     }
     os << "\"\n"
-       << "style=\"";
+       << s << "   style=\"";
     m_style->print(os);
     os << "\"/>";
 }

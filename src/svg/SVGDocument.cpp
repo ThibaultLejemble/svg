@@ -41,19 +41,19 @@ void SVGDocument::print(const std::string& filename) const
     ofs.close();
 }
 
-void SVGDocument::print(std::ostream &os) const
+void SVGDocument::print(std::ostream &os, int) const
 {
     os << "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"no\"?>\n";
     os << "<svg\n"
-       << "id=\"" << m_id << "\"\n"
-       << "version=\"1.1\"\n"
-       << "viewBox=\"0 0 " << m_width << " " << m_height << "\"\n"
-       << "height=\"" << m_height << "mm\"\n"
-       << "width=\"" << m_width << "mm\">\n";
+       << "   id=\"" << m_id << "\"\n"
+       << "   version=\"1.1\"\n"
+       << "   viewBox=\"0 0 " << m_width << " " << m_height << "\"\n"
+       << "   height=\"" << m_height << "mm\"\n"
+       << "   width=\"" << m_width << "mm\">\n";
     {
         for(const auto& child : m_children)
         {
-            child->print(os);
+            child->print(os, 2);
             os << "\n";
         }
     }

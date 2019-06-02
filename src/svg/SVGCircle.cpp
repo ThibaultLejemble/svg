@@ -57,14 +57,15 @@ void SVGCircle::set_r(float r)
     m_r = r;
 }
 
-void SVGCircle::print(std::ostream &os) const
+void SVGCircle::print(std::ostream &os, int n) const
 {
-    os << "<circle\n"
-       << "id=\"" << m_id << "\"\n"
-       << "cx=\"" << m_x  << "\"\n"
-       << "cy=\"" << m_y  << "\"\n"
-       << "r=\""  << m_r  << "\"\n"
-       << "style=\"";
+    std::string s(n, ' ');
+    os << s << "<circle\n"
+       << s << "   id=\"" << m_id << "\"\n"
+       << s << "   cx=\"" << m_x  << "\"\n"
+       << s << "   cy=\"" << m_y  << "\"\n"
+       << s << "   r=\""  << m_r  << "\"\n"
+       << s << "   style=\"";
     m_style->print(os);
     os << "\"/>";
 }

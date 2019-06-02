@@ -30,7 +30,7 @@ public:
     void set_y2(float y2);
 
 public:
-    virtual void print(std::ostream &os) const override;
+    virtual void print(std::ostream &os, int n) const override;
 
 protected:
     float m_x1;

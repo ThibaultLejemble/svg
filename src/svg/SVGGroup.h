@@ -9,7 +9,7 @@ class SVGGroup : public SVGElement
 public:
     SVGGroup(const std::string& id = "");
 
-    virtual void print(std::ostream& os) const override;
+    virtual void print(std::ostream& os, int n) const override;
 };
 
 } // namespace svg

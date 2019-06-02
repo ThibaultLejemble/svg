@@ -26,7 +26,7 @@ public:
     void set_r(float r);
 
 public:
-    virtual void print(std::ostream &os) const override;
+    virtual void print(std::ostream &os, int n) const override;
 
 protected:
     float m_x;

@@ -71,15 +71,16 @@ void SVGEllipse::set_ry(float ry)
     m_ry = ry;
 }
 
-void SVGEllipse::print(std::ostream &os) const
+void SVGEllipse::print(std::ostream &os, int n) const
 {
-    os << "<circle\n"
-       << "id=\"" << m_id << "\"\n"
-       << "cx=\"" << m_x  << "\"\n"
-       << "cy=\"" << m_y  << "\"\n"
-       << "rx=\"" << m_rx << "\"\n"
-       << "ry=\"" << m_ry << "\"\n"
-       << "style=\"";
+    std::string s(n, ' ');
+    os << s << "<circle\n"
+       << s << "   id=\"" << m_id << "\"\n"
+       << s << "   cx=\"" << m_x  << "\"\n"
+       << s << "   cy=\"" << m_y  << "\"\n"
+       << s << "   rx=\"" << m_rx << "\"\n"
+       << s << "   ry=\"" << m_ry << "\"\n"
+       << s << "   style=\"";
     m_style->print(os);
     os << "\"/>";
 }

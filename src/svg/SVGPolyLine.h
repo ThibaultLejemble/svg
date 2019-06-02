@@ -14,7 +14,7 @@ public:
     std::vector<Point>& points();
 
 public:
-    virtual void print(std::ostream &os) const override;
+    virtual void print(std::ostream &os, int n) const override;
 
 protected:
     std::vector<Point> m_points;
