@@ -1,25 +1,25 @@
 #include <svg/SVGShape.h>
-#include <svg/SVGStyle.h>
+#include <svg/Style.h>
 
 namespace svg {
 
 SVGShape::SVGShape(const std::string& id) :
     SVGElement(id),
-    m_style(std::make_shared<SVGStyle>())
+    m_style(std::make_shared<Style>())
 {
 }
 
-const SVGStyle& SVGShape::style() const
-{
-    return *m_style.get();
-}
-
-SVGStyle& SVGShape::style()
+const Style& SVGShape::style() const
 {
     return *m_style.get();
 }
 
-std::shared_ptr<SVGStyle>& SVGShape::style_ptr()
+Style& SVGShape::style()
+{
+    return *m_style.get();
+}
+
+std::shared_ptr<Style>& SVGShape::style_ptr()
 {
     return m_style;
 }

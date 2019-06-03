@@ -4,7 +4,7 @@
 
 namespace svg {
 
-class SVGStyle;
+class Style;
 
 class SVGShape : public SVGElement
 {
@@ -12,13 +12,13 @@ public:
     SVGShape(const std::string& id = "");
 
 public:
-    const SVGStyle& style() const;
-    SVGStyle& style();
+    const Style& style() const;
+    Style& style();
 
-    std::shared_ptr<SVGStyle>& style_ptr();
+    std::shared_ptr<Style>& style_ptr();
 
 protected:
-    std::shared_ptr<SVGStyle> m_style;
+    std::shared_ptr<Style> m_style;
 };
 
 } // namespace svg

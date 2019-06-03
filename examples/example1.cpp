@@ -2,7 +2,7 @@
 #include <svg/SVGGroup.h>
 #include <svg/SVGRectangle.h>
 #include <svg/SVGCircle.h>
-#include <svg/SVGStyle.h>
+#include <svg/Style.h>
 
 using namespace svg;
 

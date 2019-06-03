@@ -25,10 +25,10 @@ enum class Order
     Normal = 0
 };
 
-class SVGStyle
+class Style
 {
 public:
-    SVGStyle();
+    Style();
 
     static std::string to_string(Cap cap);
     static std::string to_string(Join join);

@@ -1,5 +1,5 @@
 #include <svg/SVGPolyLine.h>
-#include <svg/SVGStyle.h>
+#include <svg/Style.h>
 
 #include <ostream>
 
