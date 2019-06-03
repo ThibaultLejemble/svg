@@ -12,17 +12,17 @@ int main()
     SVGCircle*    circ = new SVGCircle("circle", 75, 75, 25);
 
     rect->style().set_filled();
-    rect->style().set_fill(SVGColor(1,0,0));
+    rect->style().set_fill(Color(1,0,0));
     rect->style().set_fill_opacity(0.5);
     rect->style().set_stroked();
-    rect->style().set_stroke(SVGColor(0,0,0));
+    rect->style().set_stroke(Color(0,0,0));
     rect->style().set_stroke_width(2);
 
     circ->style().set_filled();
-    circ->style().set_fill(SVGColor(0,0,1));
+    circ->style().set_fill(Color(0,0,1));
     circ->style().set_fill_opacity(0.5);
     circ->style().set_stroked();
-    circ->style().set_stroke(SVGColor(0,0.5,1));
+    circ->style().set_stroke(Color(0,0.5,1));
     circ->style().set_stroke_width(1);
     circ->style().set_stroke_dashed();
     circ->style().set_stroke_dasharray({5,5});

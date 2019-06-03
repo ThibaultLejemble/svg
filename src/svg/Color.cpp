@@ -1,4 +1,4 @@
-#include <svg/SVGColor.h>
+#include <svg/Color.h>
 
 #include <sstream>
 #include <iomanip>
@@ -6,16 +6,16 @@
 
 namespace svg {
 
-float SVGColor::m_norm_255 = 1./255;
+float Color::m_norm_255 = 1./255;
 
-SVGColor::SVGColor(float r, float g, float b) :
+Color::Color(float r, float g, float b) :
     m_r(r),
     m_g(g),
     m_b(b)
 {
 }
 
-SVGColor::SVGColor(const std::string& hexa) :
+Color::Color(const std::string& hexa) :
     m_r(),
     m_g(),
     m_b()
@@ -23,93 +23,93 @@ SVGColor::SVGColor(const std::string& hexa) :
     set_hexa(hexa);
 }
 
-SVGColor SVGColor::from_255(int r, int g, int b)
+Color Color::from_255(int r, int g, int b)
 {
-    return SVGColor(m_norm_255 * r,
-                    m_norm_255 * g,
-                    m_norm_255 * b);
+    return Color(m_norm_255 * r,
+                 m_norm_255 * g,
+                 m_norm_255 * b);
 }
 
-SVGColor SVGColor::from_hexa(const std::string& hexa)
+Color Color::from_hexa(const std::string& hexa)
 {
-    return SVGColor(hexa);
+    return Color(hexa);
 }
 
-float SVGColor::r() const
+float Color::r() const
 {
     return m_r;
 }
 
-float SVGColor::g() const
+float Color::g() const
 {
     return m_g;
 }
 
-float SVGColor::b() const
+float Color::b() const
 {
     return m_b;
 }
 
-int SVGColor::r_255() const
+int Color::r_255() const
 {
     return std::round(m_r*255);
 }
 
-int SVGColor::g_255() const
+int Color::g_255() const
 {
     return std::round(m_g*255);
 }
 
-int SVGColor::b_255() const
+int Color::b_255() const
 {
     return std::round(m_b*255);
 }
 
-void SVGColor::set(float r, float g, float b)
+void Color::set(float r, float g, float b)
 {
     m_r = r;
     m_g = g;
     m_b = b;
 }
 
-void SVGColor::set_r(float r)
+void Color::set_r(float r)
 {
     m_r = r;
 }
 
-void SVGColor::set_g(float g)
+void Color::set_g(float g)
 {
     m_g = g;
 }
 
-void SVGColor::set_b(float b)
+void Color::set_b(float b)
 {
     m_b = b;
 }
 
-void SVGColor::set_255(int r, int g, int b)
+void Color::set_255(int r, int g, int b)
 {
     m_r = m_norm_255*r;
     m_g = m_norm_255*g;
     m_b = m_norm_255*b;
 }
 
-void SVGColor::set_r_255(int r)
+void Color::set_r_255(int r)
 {
     m_r = m_norm_255*r;
 }
 
-void SVGColor::set_g_255(int g)
+void Color::set_g_255(int g)
 {
     m_g = m_norm_255*g;
 }
 
-void SVGColor::set_b_255(int b)
+void Color::set_b_255(int b)
 {
     m_b = m_norm_255*b;
 }
 
-std::string SVGColor::hexa() const
+std::string Color::hexa() const
 {
     std::stringstream r, g, b;
     r << std::hex << std::setfill('0') << std::setw(2) << r_255();
@@ -118,7 +118,7 @@ std::string SVGColor::hexa() const
     return "#" + r.str() + g.str() + b.str();
 }
 
-void SVGColor::set_hexa(const std::string& hexa)
+void Color::set_hexa(const std::string& hexa)
 {
     if(hexa.size() == 7)
     {

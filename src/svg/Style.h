@@ -1,6 +1,6 @@
 #pragma once
 
-#include <svg/SVGColor.h>
+#include <svg/Color.h>
 
 #include <vector>
 
@@ -42,8 +42,8 @@ public:
     bool is_filled() const;
     void set_filled(bool filled = true);
 
-    const SVGColor& fill() const;
-    void set_fill(const SVGColor& fill);
+    const Color& fill() const;
+    void set_fill(const Color& fill);
 
     float fill_opacity() const;
     void set_fill_opacity(float opacity);
@@ -51,8 +51,8 @@ public:
     bool is_stroked() const;
     void set_stroked(bool stroked = true);
 
-    const SVGColor& stroke() const;
-    void set_stroke(const SVGColor& stroke);
+    const Color& stroke() const;
+    void set_stroke(const Color& stroke);
 
     float stroke_width() const;
     void set_stroke_width(float width);
@@ -88,11 +88,11 @@ protected:
     float            m_opacity;
 
     bool             m_filled;
-    SVGColor         m_fill;
+    Color            m_fill;
     float            m_fill_opacity;
 
     bool             m_stroked;
-    SVGColor         m_stroke;
+    Color            m_stroke;
     float            m_stroke_width;
     Cap              m_stroke_linecap;
     Join             m_stroke_linejoin;

@@ -86,12 +86,12 @@ void Style::set_filled(bool filled)
     m_filled = filled;
 }
 
-const SVGColor& Style::fill() const
+const Color& Style::fill() const
 {
     return m_fill;
 }
 
-void Style::set_fill(const SVGColor& fill)
+void Style::set_fill(const Color& fill)
 {
     m_fill = fill;
 }
@@ -116,12 +116,12 @@ void Style::set_stroked(bool stroked)
     m_stroked = stroked;
 }
 
-const SVGColor& Style::stroke() const
+const Color& Style::stroke() const
 {
     return m_stroke;
 }
 
-void Style::set_stroke(const SVGColor& stroke)
+void Style::set_stroke(const Color& stroke)
 {
     m_stroke = stroke;
 }
