@@ -94,10 +94,9 @@ void SVGRectangle::print(std::ostream &os, int n) const
        << s << "   y=\""        << m_y      << "\"\n"
        << s << "   width=\""    << m_width  << "\"\n"
        << s << "   height=\""   << m_height << "\"\n"
-       << s << "   rx=\""       << m_r      << "\"\n"
-       << s << "   style=\"";
-    m_style->print(os);
-    os << "\"/>";
+       << s << "   rx=\""       << m_r      << "\"\n";
+    print_attributes(os, n+3);
+    os << "/>";
 }
 
 } // namespace svg

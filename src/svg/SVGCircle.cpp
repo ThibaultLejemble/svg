@@ -64,10 +64,9 @@ void SVGCircle::print(std::ostream &os, int n) const
        << s << "   id=\"" << m_id << "\"\n"
        << s << "   cx=\"" << m_x  << "\"\n"
        << s << "   cy=\"" << m_y  << "\"\n"
-       << s << "   r=\""  << m_r  << "\"\n"
-       << s << "   style=\"";
-    m_style->print(os);
-    os << "\"/>";
+       << s << "   r=\""  << m_r  << "\"\n";
+    print_attributes(os, n+3);
+    os << "/>";
 }
 
 } // namespace svg

@@ -79,10 +79,9 @@ void SVGEllipse::print(std::ostream &os, int n) const
        << s << "   cx=\"" << m_x  << "\"\n"
        << s << "   cy=\"" << m_y  << "\"\n"
        << s << "   rx=\"" << m_rx << "\"\n"
-       << s << "   ry=\"" << m_ry << "\"\n"
-       << s << "   style=\"";
-    m_style->print(os);
-    os << "\"/>";
+       << s << "   ry=\"" << m_ry << "\"\n";
+    print_attributes(os, n+3);
+    os << "/>";
 }
 
 } // namespace svg

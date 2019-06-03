@@ -78,10 +78,9 @@ void SVGLine::print(std::ostream &os, int n) const
        << s << "   x1=\"" << m_x1 << "\"\n"
        << s << "   y1=\"" << m_y1 << "\"\n"
        << s << "   x2=\"" << m_x2 << "\"\n"
-       << s << "   y2=\"" << m_y2 << "\"\n"
-       << s << "   style=\"";
-    m_style->print(os);
-    os << "\"/>";
+       << s << "   y2=\"" << m_y2 << "\"\n";
+    print_attributes(os, n+3);
+    os << "/>";
 }
 
 } // namespace svg

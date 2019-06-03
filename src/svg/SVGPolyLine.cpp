@@ -32,10 +32,9 @@ void SVGPolyLine::print(std::ostream &os, int n) const
         if(idx < m_points.size()-1)
             os << " ";
     }
-    os << "\"\n"
-       << s << "   style=\"";
-    m_style->print(os);
-    os << "\"/>";
+    os << "\"\n";
+    print_attributes(os, n+3);
+    os << "/>";
 }
 
 } // namespace svg

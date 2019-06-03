@@ -17,6 +17,9 @@ public:
 
     std::shared_ptr<Style>& style_ptr();
 
+public:
+    void print_style(std::ostream& os, int n) const;
+
 protected:
     std::shared_ptr<Style> m_style;
 };
