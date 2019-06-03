@@ -1,3 +1,9 @@
+# Custom
+CMakeLists.txt.user
+buildDebug/
+buildRelease/
+build/
+
 # Prerequisites
 *.d
 
