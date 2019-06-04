@@ -52,7 +52,7 @@ std::shared_ptr<Transform>& Transformable::transform_ptr(int i)
 
 void Transformable::emplace_back()
 {
-    return m_transforms.emplace_back();
+    return m_transforms.emplace_back(std::make_shared<Transform>());
 }
 
 void Transformable::emplace_back(const Transform& t)
@@ -74,7 +74,7 @@ void Transformable::print_transforms(std::ostream& os, int n) const
             for(size_t i=0; i<m_transforms.size(); ++i)
             {
                 m_transforms[i]->print(os);
-                if(i < m_transforms.size())
+                if(i < m_transforms.size()-1)
                     os << " ";
             }
         }
