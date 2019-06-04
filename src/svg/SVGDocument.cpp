@@ -6,6 +6,7 @@ namespace svg {
 
 SVGDocument::SVGDocument(float width, float height) :
     SVGElement("main"),
+    Transformable(),
     m_width(width),
     m_height(height)
 {
@@ -49,13 +50,17 @@ void SVGDocument::print(std::ostream &os, int) const
        << "   version=\"1.1\"\n"
        << "   viewBox=\"0 0 " << m_width << " " << m_height << "\"\n"
        << "   height=\"" << m_height << "mm\"\n"
-       << "   width=\"" << m_width << "mm\">\n";
+       << "   width=\"" << m_width << "mm\"";
+    if(!m_transforms.empty())
     {
-        for(const auto& child : m_children)
-        {
-            child->print(os, 2);
-            os << "\n";
-        }
+        os << "\n";
+        print_transforms(os, 3);
+    }
+    os << ">\n";
+    for(const auto& child : m_children)
+    {
+        child->print(os, 2);
+        os << "\n";
     }
     os << "</svg>";
 }
