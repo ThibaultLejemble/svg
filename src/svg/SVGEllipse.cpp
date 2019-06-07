@@ -74,7 +74,7 @@ void SVGEllipse::set_ry(float ry)
 void SVGEllipse::print(std::ostream &os, int n) const
 {
     std::string s(n, ' ');
-    os << s << "<circle\n"
+    os << s << "<ellipse\n"
        << s << "   id=\"" << m_id << "\"\n"
        << s << "   cx=\"" << m_x  << "\"\n"
        << s << "   cy=\"" << m_y  << "\"\n"
