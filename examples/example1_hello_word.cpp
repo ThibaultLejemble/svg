@@ -5,14 +5,12 @@ using namespace svg;
 
 int main()
 {
-    SVGRectangle* rect = new SVGRectangle("rectangle", 50, 50, 25, 25);
+    SVGRectangle* rect = new SVGRectangle("rectangle", 10, 10, 80, 80);
 
-    SVGDocument svg;
-    svg.set_width(100);
-    svg.set_height(100);
+    SVGDocument svg(100,100);
     svg.add_child(rect);
 
-    svg.print("example1.svg");
+    svg.print("example1_hello_word.svg");
 
     return 0;
 }
