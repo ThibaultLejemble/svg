@@ -16,7 +16,7 @@ Style::Style() :
     m_stroke_linejoin(Join::Miter),
     m_stroke_miterlimit(4),
     m_stroke_dashed(false),
-    m_stroke_dasharray({}),
+    m_stroke_dasharray({2,2}),
     m_stroke_dashoffset(0),
     m_stroke_opacity(1),
     m_paint_order(Order::Normal)
