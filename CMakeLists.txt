@@ -18,3 +18,4 @@ include_directories(src/)
 
 add_executable(example1_hello_word   examples/example1_hello_word.cpp   ${SOURCES})
 add_executable(example2_basic_shapes examples/example2_basic_shapes.cpp ${SOURCES})
+add_executable(example3_group        examples/example3_group.cpp        ${SOURCES})
