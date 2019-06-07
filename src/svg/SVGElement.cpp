@@ -63,8 +63,4 @@ void SVGElement::remove_child(int i)
     m_children.erase(m_children.begin()+i);
 }
 
-void SVGElement::print(std::ostream& /*os*/, int /*n*/) const
-{
-}
-
 } // namespace svg
