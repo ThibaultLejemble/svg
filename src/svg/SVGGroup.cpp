@@ -12,7 +12,9 @@ SVGGroup::SVGGroup(const std::string& id) :
 void SVGGroup::print(std::ostream& os, int n) const
 {
     std::string s(n, ' ');
-    os << s << "<g id=\"" << m_id << "\">\n";
+    os << s << "<g id=\"" << m_id << "\"\n"
+       << s << "   inkscape:label=\"" << m_id << "\"\n"
+       << s << "   inkscape:groupmode=\"layer\">\n";
     {
         for(const auto& child : m_children)
         {
