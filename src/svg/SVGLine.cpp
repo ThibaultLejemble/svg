@@ -16,6 +16,8 @@ SVGLine::SVGLine(const std::string& id,
     m_x2(x2),
     m_y2(y2)
 {
+    m_style->set_filled(false);
+    m_style->set_stroked(true);
 }
 
 SVGLine::SVGLine(float x1,
@@ -29,6 +31,8 @@ SVGLine::SVGLine(float x1,
     m_x2(x2),
     m_y2(y2)
 {
+    m_style->set_filled(false);
+    m_style->set_stroked(true);
 }
 
 float SVGLine::x1() const
