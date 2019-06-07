@@ -1,17 +1,17 @@
-#include <svg/SVGPolygone.h>
+#include <svg/SVGPolygon.h>
 #include <svg/Style.h>
 
 #include <ostream>
 
 namespace svg {
 
-SVGPolygone::SVGPolygone(const std::string& id) :
+SVGPolygon::SVGPolygon(const std::string& id) :
     SVGShape(id),
     m_points()
 {
 }
 
-SVGPolygone::SVGPolygone(const std::string& id, const std::vector<float>& points) :
+SVGPolygon::SVGPolygon(const std::string& id, const std::vector<float>& points) :
     SVGShape(id),
     m_points()
 {
@@ -23,7 +23,7 @@ SVGPolygone::SVGPolygone(const std::string& id, const std::vector<float>& points
     }
 }
 
-SVGPolygone::SVGPolygone(const std::string& id, const std::vector<float>& x, const std::vector<float>& y) :
+SVGPolygon::SVGPolygon(const std::string& id, const std::vector<float>& x, const std::vector<float>& y) :
     SVGShape(id),
     m_points()
 {
@@ -35,27 +35,27 @@ SVGPolygone::SVGPolygone(const std::string& id, const std::vector<float>& x, con
     }
 }
 
-SVGPolygone::SVGPolygone(const std::vector<float>& points, const std::string& id) :
-    SVGPolygone(id, points)
+SVGPolygon::SVGPolygon(const std::vector<float>& points, const std::string& id) :
+    SVGPolygon(id, points)
 {
 }
 
-SVGPolygone::SVGPolygone(const std::vector<float>& x, const std::vector<float>& y, const std::string& id) :
-    SVGPolygone(id, x, y)
+SVGPolygon::SVGPolygon(const std::vector<float>& x, const std::vector<float>& y, const std::string& id) :
+    SVGPolygon(id, x, y)
 {
 }
 
-const std::vector<Point>& SVGPolygone::points() const
-{
-    return m_points;
-}
-
-std::vector<Point>& SVGPolygone::points()
+const std::vector<Point>& SVGPolygon::points() const
 {
     return m_points;
 }
 
-void SVGPolygone::print(std::ostream &os, int n) const
+std::vector<Point>& SVGPolygon::points()
+{
+    return m_points;
+}
+
+void SVGPolygon::print(std::ostream &os, int n) const
 {
     std::string s(n, ' ');
     os <<s << "<polygon\n"
