@@ -16,4 +16,4 @@ set(SOURCES ${FILE_H} ${FILE_HPP} ${FILE_CPP} ${FILE_INL})
 
 include_directories(src/)
 
-add_executable(example1 examples/example1.cpp ${SOURCES})
+add_executable(example1_hello_word examples/example1_hello_word.cpp ${SOURCES})
