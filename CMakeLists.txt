@@ -16,4 +16,5 @@ set(SOURCES ${FILE_H} ${FILE_HPP} ${FILE_CPP} ${FILE_INL})
 
 include_directories(src/)
 
-add_executable(example1_hello_word examples/example1_hello_word.cpp ${SOURCES})
+add_executable(example1_hello_word   examples/example1_hello_word.cpp   ${SOURCES})
+add_executable(example2_basic_shapes examples/example2_basic_shapes.cpp ${SOURCES})
