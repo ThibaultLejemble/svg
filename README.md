@@ -2,8 +2,8 @@
 
 ## TODO
 
-- use / symbole / defs / pattern
 - img
 - text
+- transform
 - gradients
 - clipping, masking and compositing
