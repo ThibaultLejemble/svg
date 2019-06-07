@@ -9,7 +9,7 @@ Style::Style() :
     m_filled(true),
     m_fill(0,0,0),
     m_fill_opacity(1),
-    m_stroked(true),
+    m_stroked(false),
     m_stroke(0,0,0),
     m_stroke_width(1),
     m_stroke_linecap(Cap::Butt),
