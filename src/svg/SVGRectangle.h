@@ -8,15 +8,15 @@ class SVGRectangle : public SVGShape
 {
 public:
     SVGRectangle(const std::string& id,
+                 float x = 0,
+                 float y = 0,
                  float width = 1,
                  float height = 1,
-                 float x = 0,
-                 float y = 0,
                  float r = 0);
-    SVGRectangle(float width = 1,
-                 float height = 1,
-                 float x = 0,
+    SVGRectangle(float x = 0,
                  float y = 0,
+                 float width = 1,
+                 float height = 1,
                  float r = 0,
                  const std::string& id = "");
 

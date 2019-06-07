@@ -6,10 +6,10 @@
 namespace svg {
 
 SVGRectangle::SVGRectangle(const std::string& id,
-                           float width,
-                           float height,
                            float x,
                            float y,
+                           float width,
+                           float height,
                            float r) :
     SVGShape(id),
     m_x(x),
@@ -20,10 +20,10 @@ SVGRectangle::SVGRectangle(const std::string& id,
 {
 }
 
-SVGRectangle::SVGRectangle(float width,
-                           float height,
-                           float x,
+SVGRectangle::SVGRectangle(float x,
                            float y,
+                           float width,
+                           float height,
                            float r,
                            const std::string& id) :
     SVGShape(id),
