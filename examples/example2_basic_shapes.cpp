@@ -12,9 +12,7 @@ int main()
     SVGPolyLine*  polyline  = new SVGPolyLine("polyline", {150,110,110,130,170,190,190,150}, {190,160,130,110,110,130,160,190});
     SVGPolygon*   polygon   = new SVGPolygon("polygon", {250,210,210,230,270,290,290,250}, {190,160,130,110,110,130,160,190});
 
-    SVGDocument svg;
-    svg.set_width(300);
-    svg.set_height(200);
+    SVGDocument svg(300,200);
     svg.add_child(rectangle);
     svg.add_child(circle);
     svg.add_child(ellipse);
