@@ -33,11 +33,9 @@ int main()
     svg.add_child(new SVGUse("cube",  0, 40, 20, 30));
     svg.add_child(new SVGUse("cube", 20, 40, 20, 30));
     svg.add_child(new SVGUse("cube", 40, 40, 20, 30));
-
     svg.add_child(new SVGUse("cube", 10, 20, 20, 30));
     svg.add_child(new SVGUse("cube", 30, 20, 20, 30));
-
-    svg.add_child(new SVGUse("cube", 20, 0, 20, 30));
+    svg.add_child(new SVGUse("cube", 20,  0, 20, 30));
 
     svg.print("example5_use_symbol.svg");
 
