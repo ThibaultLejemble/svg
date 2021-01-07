@@ -8,9 +8,9 @@ using namespace svg;
 
 int main()
 {
-    SVGPolygon* polygon1 = new SVGPolygon("polygon1", {1,1,0,0},{3,2,1,2});
-    SVGPolygon* polygon2 = new SVGPolygon("polygon2", {1,1,2,2},{3,2,1,2});
-    SVGPolygon* polygon3 = new SVGPolygon("polygon3", {1,2,1,0},{2,1,0,1});
+    auto polygon1 = new SVGPolygon("polygon1", {1,1,0,0},{3,2,1,2});
+    auto polygon2 = new SVGPolygon("polygon2", {1,1,2,2},{3,2,1,2});
+    auto polygon3 = new SVGPolygon("polygon3", {1,2,1,0},{2,1,0,1});
 
     polygon1->style().set_filled(true);
     polygon1->style().set_stroked(false);
@@ -22,7 +22,7 @@ int main()
     polygon2->style().set_fill({0.75,0.75,0.75});
     polygon3->style().set_fill({0.50,0.50,0.50});
 
-    SVGSymbol* symbol = new SVGSymbol("cube", 2, 3);
+    auto symbol = new SVGSymbol("cube", 2, 3);
     symbol->add_child(polygon1);
     symbol->add_child(polygon2);
     symbol->add_child(polygon3);
