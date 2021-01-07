@@ -52,17 +52,17 @@ std::shared_ptr<Transform>& Transformable::transform_ptr(int i)
 
 void Transformable::emplace_back()
 {
-    return m_transforms.emplace_back(std::make_shared<Transform>());
+    m_transforms.emplace_back(std::make_shared<Transform>());
 }
 
 void Transformable::emplace_back(const Transform& t)
 {
-    return m_transforms.emplace_back(std::make_shared<Transform>(t));
+    m_transforms.emplace_back(std::make_shared<Transform>(t));
 }
 
 void Transformable::emplace_back(std::shared_ptr<Transform>& ptr)
 {
-    return m_transforms.emplace_back(ptr);
+    m_transforms.emplace_back(ptr);
 }
 
 void Transformable::print_transforms(std::ostream& os, int n) const
