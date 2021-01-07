@@ -6,3 +6,4 @@
 - text
 - gradients
 - clipping, masking and compositing
+- loading
