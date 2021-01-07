@@ -1,4 +1,5 @@
 #include <svg/SVGDocument.h>
+#include <svg/Transform.h>
 
 #include <fstream>
 
@@ -30,6 +31,20 @@ void SVGDocument::set_width(float width)
 void SVGDocument::set_height(float height)
 {
     m_height = height;
+}
+
+void SVGDocument::flip()
+{
+    Transform T1(Type::Scaling);
+    Transform T2(Type::Translation);
+
+    T1.set_sx( 1);
+    T1.set_sy(-1);
+    T2.set_tx(0);
+    T2.set_ty(-m_height);
+
+    emplace_back(T1);
+    emplace_back(T2);
 }
 
 void SVGDocument::print(const std::string& filename) const

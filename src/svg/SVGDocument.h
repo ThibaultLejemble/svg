@@ -17,6 +17,8 @@ public:
     void set_width(float width);
     void set_height(float height);
 
+    void flip();
+
 public:
     void print(const std::string& filename) const;
     virtual void print(std::ostream &os, int n = 0) const override;
