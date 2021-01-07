@@ -67,16 +67,15 @@ void SVGDocument::set_height(float height)
 
 void SVGDocument::flip()
 {
-    Transform T1(Type::Scaling);
-    Transform T2(Type::Translation);
+    Transform T(Type::Matrix);
+    T.set_a( 1);
+    T.set_b( 0);
+    T.set_c( 0);
+    T.set_d(-1);
+    T.set_e( 0);
+    T.set_f(m_ymin + m_ymax);
 
-    T1.set_sx( 1);
-    T1.set_sy(-1);
-    T2.set_tx(0);
-    T2.set_ty(-this->height());
-
-    emplace_back(T1);
-    emplace_back(T2);
+    emplace_back(T);
 }
 
 void SVGDocument::print(const std::string& filename) const
@@ -95,7 +94,7 @@ void SVGDocument::print(std::ostream &os, int) const
     os << "<svg\n"
        << "   id=\"" << m_id << "\"\n"
        << "   version=\"1.1\"\n"
-       << "   viewBox=\"" << m_xmin << " " << m_ymin << " " << m_xmax << " " << m_ymax << "\"\n"
+       << "   viewBox=\"" << xmin() << " " << ymin() << " " << width() << " " << height() << "\"\n"
        << "   height=\""  << height() << "px\"\n"
        << "   width=\""   << width()  << "px\"";
     if(!m_transforms.empty())
