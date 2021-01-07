@@ -1,5 +1,6 @@
 #include <svg/SVGDocument.h>
 #include <svg/Transform.h>
+#include <svg/Transformable.h>
 
 #include <fstream>
 
@@ -7,7 +8,6 @@ namespace svg {
 
 SVGDocument::SVGDocument(float width, float height) :
     SVGElement("main"),
-    Transformable(),
     m_xmin(0),
     m_xmax(width),
     m_ymin(0),
@@ -17,7 +17,6 @@ SVGDocument::SVGDocument(float width, float height) :
 
 SVGDocument::SVGDocument(float xmin, float xmax, float ymin, float ymax) :
     SVGElement("main"),
-    Transformable(),
     m_xmin(xmin),
     m_xmax(xmax),
     m_ymin(ymin),
@@ -75,7 +74,15 @@ void SVGDocument::flip()
     T.set_e( 0);
     T.set_f(m_ymin + m_ymax);
 
-    emplace_back(T);
+    for(auto& child : m_children)
+    {
+        // add virtual methods like is_*() and as_*() in SVGElement class
+        auto childt = dynamic_cast<Transformable*>(child.get());
+        if(childt)
+        {
+            childt->emplace_back(T);
+        }
+    }
 }
 
 void SVGDocument::print(const std::string& filename) const
@@ -96,13 +103,7 @@ void SVGDocument::print(std::ostream &os, int) const
        << "   version=\"1.1\"\n"
        << "   viewBox=\"" << xmin() << " " << ymin() << " " << width() << " " << height() << "\"\n"
        << "   height=\""  << height() << "px\"\n"
-       << "   width=\""   << width()  << "px\"";
-    if(!m_transforms.empty())
-    {
-        os << "\n";
-        print_transforms(os, 3);
-    }
-    os << ">\n";
+       << "   width=\""   << width()  << "px\"\n";
     for(const auto& child : m_children)
     {
         child->print(os, 2);

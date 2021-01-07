@@ -1,10 +1,11 @@
 #pragma once
 
 #include <svg/SVGElement.h>
+#include <svg/Transformable.h>
 
 namespace svg {
 
-class SVGGroup : public SVGElement
+class SVGGroup : public SVGElement, public Transformable
 {
 public:
     SVGGroup(const std::string& id = "");

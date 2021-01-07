@@ -1,11 +1,10 @@
 #pragma once
 
 #include <svg/SVGElement.h>
-#include <svg/Transformable.h>
 
 namespace svg {
 
-class SVGDocument : public SVGElement, public Transformable
+class SVGDocument : public SVGElement
 {
 public:
     SVGDocument(float width = 210, float height = 297);
