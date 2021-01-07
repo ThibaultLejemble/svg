@@ -9,6 +9,7 @@ class SVGGroup : public SVGElement, public Transformable
 {
 public:
     SVGGroup(const std::string& id = "");
+    virtual ~SVGGroup(){}
 
     virtual void print(std::ostream& os, int n) const override;
 };
