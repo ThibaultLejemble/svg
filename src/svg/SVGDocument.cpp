@@ -8,29 +8,61 @@ namespace svg {
 SVGDocument::SVGDocument(float width, float height) :
     SVGElement("main"),
     Transformable(),
-    m_width(width),
-    m_height(height)
+    m_xmin(0),
+    m_xmax(width),
+    m_ymin(0),
+    m_ymax(height)
 {
+}
+
+SVGDocument::SVGDocument(float xmin, float xmax, float ymin, float ymax) :
+    SVGElement("main"),
+    Transformable(),
+    m_xmin(xmin),
+    m_xmax(xmax),
+    m_ymin(ymin),
+    m_ymax(ymax)
+{
+}
+
+float SVGDocument::xmin() const
+{
+    return m_xmin;
+}
+
+float SVGDocument::xmax() const
+{
+    return m_xmax;
+}
+
+float SVGDocument::ymin() const
+{
+    return m_ymin;
+}
+
+float SVGDocument::ymax() const
+{
+    return m_ymax;
 }
 
 float SVGDocument::width() const
 {
-    return m_width;
+    return m_xmax - m_xmin;
 }
 
 float SVGDocument::height() const
 {
-    return m_height;
+    return m_ymax - m_ymin;
 }
 
 void SVGDocument::set_width(float width)
 {
-    m_width = width;
+    m_xmax = m_xmin + width;
 }
 
 void SVGDocument::set_height(float height)
 {
-    m_height = height;
+    m_ymax = m_ymin + height;
 }
 
 void SVGDocument::flip()
@@ -41,7 +73,7 @@ void SVGDocument::flip()
     T1.set_sx( 1);
     T1.set_sy(-1);
     T2.set_tx(0);
-    T2.set_ty(-m_height);
+    T2.set_ty(-this->height());
 
     emplace_back(T1);
     emplace_back(T2);
@@ -63,9 +95,9 @@ void SVGDocument::print(std::ostream &os, int) const
     os << "<svg\n"
        << "   id=\"" << m_id << "\"\n"
        << "   version=\"1.1\"\n"
-       << "   viewBox=\"0 0 " << m_width << " " << m_height << "\"\n"
-       << "   height=\"" << m_height << "mm\"\n"
-       << "   width=\"" << m_width << "mm\"";
+       << "   viewBox=\"" << m_xmin << " " << m_ymin << " " << m_xmax << " " << m_ymax << "\"\n"
+       << "   height=\""  << height() << "px\"\n"
+       << "   width=\""   << width()  << "px\"";
     if(!m_transforms.empty())
     {
         os << "\n";
