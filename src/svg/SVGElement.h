@@ -13,17 +13,24 @@ public:
 
 public:
     bool has_id() const;
+    const std::string& id() const;
+
     void set_id(const std::string& id);
     void set_id(std::string&& id);
-    const std::string& id() const;
 
 public:
     bool has_children() const;
     int children_count() const;
-    SVGElement* child(int i);
+
+          SVGElement* child(int i);
     const SVGElement* child(int i) const;
+
     void add_child(SVGElement* element);
     void add_child_in_new_group(const std::string& name, SVGElement* element);
+
+    void add_child_front(SVGElement* element);
+    void add_child_front_in_new_group(const std::string& name, SVGElement* element);
+
     void remove_children();
     void remove_child(int i);
 
