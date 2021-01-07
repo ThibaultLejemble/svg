@@ -1,6 +1,9 @@
 #include <svg/SVGDocument.h>
 #include <svg/Transform.h>
 #include <svg/Transformable.h>
+#include <svg/Color.h>
+#include <svg/Style.h>
+#include <svg/SVGRectangle.h>
 
 #include <fstream>
 
@@ -83,6 +86,25 @@ void SVGDocument::flip()
             childt->emplace_back(T);
         }
     }
+}
+
+void SVGDocument::add_background(float r, float g, float b, float a)
+{
+    auto rect = new SVGRectangle(xmin(), ymin(), width(), height());
+    rect->style().set_fill(Color(r,g,b));
+    rect->style().set_opacity(a);
+
+    this->add_child_in_new_group("background", rect);
+}
+
+void SVGDocument::add_background_white(float a)
+{
+    this->add_background(1,1,1,a);
+}
+
+void SVGDocument::add_background_black(float a)
+{
+    this->add_background(0,0,0,a);
 }
 
 void SVGDocument::print(const std::string& filename) const
