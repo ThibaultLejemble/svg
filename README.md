@@ -1,9 +1,8 @@
-# svg
+# svg: Simple C++ SVG library
 
-## TODO
+## Missing features
 
-- img
+- image
 - text
-- transform
 - gradients
 - clipping, masking and compositing
