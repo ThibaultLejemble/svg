@@ -18,7 +18,7 @@
 
 ## Examples
 
-To download, compile, and run the examples run these commands 
+To download, compile, and run the [examples](https://github.com/ThibaultLejemble/svg/tree/master/examples) run  
 ```
 git clone git@github.com:ThibaultLejemble/svg.git
 cd svg
@@ -31,7 +31,7 @@ make -j
 ./example3_group
 ./example4_style
 ./example5_use_symbol
-```
+``` 
 
 ## Missing features
 
