@@ -23,6 +23,7 @@ public:
     SVGElement* child(int i);
     const SVGElement* child(int i) const;
     void add_child(SVGElement* element);
+    void add_child_in_new_group(const std::string& name, SVGElement* element);
     void remove_children();
     void remove_child(int i);
 

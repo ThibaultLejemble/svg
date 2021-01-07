@@ -1,4 +1,5 @@
 #include <svg/SVGElement.h>
+#include <svg/SVGGroup.h>
 
 namespace svg {
 
@@ -51,6 +52,13 @@ const SVGElement* SVGElement::child(int i) const
 void SVGElement::add_child(SVGElement* element)
 {
     m_children.emplace_back(element);
+}
+
+void SVGElement::add_child_in_new_group(const std::string& name, SVGElement* element)
+{
+    auto g = new SVGGroup(name);
+    g->add_child(element);
+    this->add_child(g);
 }
 
 void SVGElement::remove_children()
