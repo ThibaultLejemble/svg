@@ -193,7 +193,7 @@ void Transform::print_matrix(std::ostream& os) const
 
 void Transform::print_translation(std::ostream& os) const
 {
-    os << "translation(" << tx() << " " << ty() << ")";
+    os << "translate(" << tx() << " " << ty() << ")";
 }
 
 void Transform::print_scaling(std::ostream& os) const
