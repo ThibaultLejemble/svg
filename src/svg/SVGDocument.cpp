@@ -94,7 +94,7 @@ void SVGDocument::add_background(float r, float g, float b, float a)
     rect->style().set_fill(Color(r,g,b));
     rect->style().set_opacity(a);
 
-    this->add_child_in_new_group("background", rect);
+    this->add_child_front_in_new_group("background", rect);
 }
 
 void SVGDocument::add_background_white(float a)
