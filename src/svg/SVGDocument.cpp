@@ -126,6 +126,7 @@ void SVGDocument::print(std::ostream &os, int) const
        << "   viewBox=\"" << xmin() << " " << ymin() << " " << width() << " " << height() << "\"\n"
        << "   height=\""  << height() << "px\"\n"
        << "   width=\"" << width() << "px\"\n"
+       << "   xmlns:xlink=\"http://www.w3.org/1999/xlink\"\n"
        << "   xmlns:inkscape=\"http://www.inkscape.org/namespaces/inkscape\">\n";
     for(const auto& child : m_children)
     {

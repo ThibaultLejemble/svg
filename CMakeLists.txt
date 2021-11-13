@@ -21,3 +21,4 @@ add_executable(example2_basic_shapes examples/example2_basic_shapes.cpp ${SOURCE
 add_executable(example3_group        examples/example3_group.cpp        ${SOURCES})
 add_executable(example4_style        examples/example4_style.cpp        ${SOURCES})
 add_executable(example5_use_symbol   examples/example5_use_symbol.cpp   ${SOURCES})
+add_executable(example6_image        examples/example6_image.cpp        ${SOURCES})
