@@ -34,18 +34,16 @@ void SVGSymbol::set_height(int height)
 void SVGSymbol::print(std::ostream& os, int n) const
 {
     std::string s(n, ' ');
-    os << s << "<defs>\n"
-       << s << "  <symbol id=\"" << m_id << "\"\n"
-       << s << "     viewBox=\"0 0 " << m_width << " " << m_height << "\">\n";
+    os << s << "<symbol id=\"" << m_id << "\"\n"
+       << s << "   viewBox=\"0 0 " << m_width << " " << m_height << "\">\n";
     {
         for(const auto& child : m_children)
         {
-            child->print(os, n+4);
+            child->print(os, n+2);
             os << "\n";
         }
     }
-    os << s << "  </symbol>\n"
-       << s << "</defs>";
+    os << s << "</symbol>\n";
 }
 
 } // namespace svg

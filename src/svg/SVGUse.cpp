@@ -28,7 +28,7 @@ void SVGUse::print(std::ostream& os, int n) const
        << s << "   y=\""      << m_y      << "\"\n"
        << s << "   width=\""  << m_width  << "\"\n"
        << s << "   height=\"" << m_height << "\"\n"
-       << s << "   xlink:href=\"#" << m_ref << "\"/>";
+       << s << "   href=\"#"  << m_ref    << "\"/>";
 }
 
 } // namespace svg
