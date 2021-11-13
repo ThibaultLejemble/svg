@@ -10,6 +10,7 @@ class SVGElement
 {
 public:
     SVGElement(const std::string& id = "");
+    virtual ~SVGElement();
 
 public:
     bool has_id() const;

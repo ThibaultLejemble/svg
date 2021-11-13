@@ -9,6 +9,10 @@ SVGElement::SVGElement(const std::string& id) :
 {
 }
 
+SVGElement::~SVGElement()
+{
+}
+
 bool SVGElement::has_id() const
 {
     return !m_id.empty();
