@@ -1,6 +1,7 @@
 #pragma once
 
 #include <array>
+#include <fstream>
 
 namespace svg {
 
