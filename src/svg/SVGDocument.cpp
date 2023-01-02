@@ -14,7 +14,9 @@ SVGDocument::SVGDocument(float width, float height) :
     m_xmin(0),
     m_xmax(width),
     m_ymin(0),
-    m_ymax(height)
+    m_ymax(height),
+    m_width(width),
+    m_height(height)
 {
 }
 
@@ -23,7 +25,20 @@ SVGDocument::SVGDocument(float xmin, float xmax, float ymin, float ymax) :
     m_xmin(xmin),
     m_xmax(xmax),
     m_ymin(ymin),
-    m_ymax(ymax)
+    m_ymax(ymax),
+    m_width(xmax - xmin),
+    m_height(ymax - ymin)
+{
+}
+
+SVGDocument::SVGDocument(float xmin, float xmax, float ymin, float ymax, float width, float height) :
+    SVGElement("main"),
+    m_xmin(xmin),
+    m_xmax(xmax),
+    m_ymin(ymin),
+    m_ymax(ymax),
+    m_width(width),
+    m_height(height)
 {
 }
 
@@ -49,22 +64,26 @@ float SVGDocument::ymax() const
 
 float SVGDocument::width() const
 {
-    return m_xmax - m_xmin;
+    return m_width;
 }
 
 float SVGDocument::height() const
 {
-    return m_ymax - m_ymin;
+    return m_height;
 }
 
-void SVGDocument::set_width(float width)
+void SVGDocument::set_viewbox(float xmin, float xmax, float ymin, float ymax)
 {
-    m_xmax = m_xmin + width;
+    m_xmin = xmin;
+    m_xmax = xmax;
+    m_ymin = ymin;
+    m_ymax = ymax;
 }
 
-void SVGDocument::set_height(float height)
+void SVGDocument::set_viewport(float width, float height)
 {
-    m_ymax = m_ymin + height;
+    m_width = width;
+    m_height = height;
 }
 
 void SVGDocument::flip()
@@ -123,9 +142,9 @@ void SVGDocument::print(std::ostream &os, int) const
     os << "<svg\n"
        << "   id=\"" << m_id << "\"\n"
        << "   version=\"1.1\"\n"
-       << "   viewBox=\"" << xmin() << " " << ymin() << " " << width() << " " << height() << "\"\n"
-       << "   height=\""  << height() << "px\"\n"
-       << "   width=\"" << width() << "px\"\n"
+       << "   viewBox=\"" << m_xmin << " " << m_ymin << " " << m_xmax - m_xmin << " " << m_ymax - m_ymin << "\"\n"
+       << "   height=\""  << m_height << "px\"\n"
+       << "   width=\"" << m_width << "px\"\n"
        << "   xmlns:xlink=\"http://www.w3.org/1999/xlink\"\n"
        << "   xmlns:inkscape=\"http://www.inkscape.org/namespaces/inkscape\">\n";
     for(const auto& child : m_children)
