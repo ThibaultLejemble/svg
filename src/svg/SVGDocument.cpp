@@ -109,7 +109,7 @@ void SVGDocument::flip()
 
 void SVGDocument::add_background(float r, float g, float b, float a)
 {
-    auto rect = new SVGRectangle(xmin(), ymin(), width(), height());
+    auto rect = new SVGRectangle(xmin(), ymin(), xmax()-xmin(), ymax()-ymin());
     rect->style().set_fill(Color(r,g,b));
     rect->style().set_opacity(a);
 
